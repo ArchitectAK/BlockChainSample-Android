@@ -1,13 +1,15 @@
 package com.cogitator.blockchainsample.domain
 
 import com.cogitator.blockchainsample.peresenter.creation.RegisterWalletContract
+import com.cogitator.blockchainsample.peresenter.utils.API_KEY
+import com.cogitator.blockchainsample.peresenter.utils.BASE_URL
 import info.blockchain.api.createwallet.CreateWallet
 import info.blockchain.api.createwallet.CreateWalletResponse
+import info.blockchain.api.exchangerates.Currency
 import info.blockchain.api.exchangerates.ExchangeRates
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-
 
 
 /**
@@ -18,12 +20,12 @@ import rx.schedulers.Schedulers
 class BlockChainRepo : RegisterWalletContract.RegisterWalletModel,
         ExchangeRateContract.ExchangeRateModel {
 
-    fun createWallet(email: String, password: String): Observable<CreateWalletResponse> {
+    override fun createWallet(email: String, password: String): Observable<CreateWalletResponse> {
         return Observable.fromCallable({
             CreateWallet.create(
-                    Constants.BASE_URL,
+                    BASE_URL,
                     password,
-                    Constants.API_KEY, null, null,
+                    API_KEY, null, null,
                     email)
         })
                 .observeOn(AndroidSchedulers.mainThread())
@@ -31,7 +33,7 @@ class BlockChainRepo : RegisterWalletContract.RegisterWalletModel,
     }
 
     fun getExchangeRates(): Observable<Map<String, Currency>> {
-        return Observable.fromCallable({ ExchangeRates.getTicker(Constants.API_KEY) })
+        return Observable.fromCallable({ ExchangeRates.getTicker(API_KEY) })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
     }
