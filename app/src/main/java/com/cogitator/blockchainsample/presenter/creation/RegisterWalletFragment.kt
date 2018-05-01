@@ -1,4 +1,4 @@
-package com.cogitator.blockchainsample.peresenter.creation
+package com.cogitator.blockchainsample.presenter.creation
 
 import android.annotation.SuppressLint
 import android.app.ProgressDialog
@@ -6,8 +6,8 @@ import android.view.View
 import android.widget.Toast
 import com.cogitator.blockchainsample.R
 import com.cogitator.blockchainsample.domain.BlockChainRepo
-import com.cogitator.blockchainsample.peresenter.MainActivity
-import com.cogitator.blockchainsample.peresenter.base.BaseFragment
+import com.cogitator.blockchainsample.presenter.MainActivity
+import com.cogitator.blockchainsample.presenter.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_register_wallet.*
 
 

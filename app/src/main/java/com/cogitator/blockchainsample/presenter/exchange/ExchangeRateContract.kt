@@ -1,8 +1,8 @@
-package com.cogitator.blockchainsample.peresenter.exchange
+package com.cogitator.blockchainsample.presenter.exchange
 
-import com.cogitator.blockchainsample.peresenter.base.BaseModel
-import com.cogitator.blockchainsample.peresenter.base.BasePresenter
-import com.cogitator.blockchainsample.peresenter.base.BaseView
+import com.cogitator.blockchainsample.presenter.base.BaseModel
+import com.cogitator.blockchainsample.presenter.base.BasePresenter
+import com.cogitator.blockchainsample.presenter.base.BaseView
 import info.blockchain.api.exchangerates.Currency
 import rx.Observable
 

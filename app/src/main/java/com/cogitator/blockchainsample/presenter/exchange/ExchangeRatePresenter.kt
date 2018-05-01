@@ -1,4 +1,4 @@
-package com.cogitator.blockchainsample.peresenter.exchange
+package com.cogitator.blockchainsample.presenter.exchange
 
 import info.blockchain.api.exchangerates.Currency
 import java.math.BigDecimal

@@ -1,8 +1,8 @@
 package com.cogitator.blockchainsample.domain
 
-import com.cogitator.blockchainsample.peresenter.creation.RegisterWalletContract
-import com.cogitator.blockchainsample.peresenter.utils.API_KEY
-import com.cogitator.blockchainsample.peresenter.utils.BASE_URL
+import com.cogitator.blockchainsample.presenter.creation.RegisterWalletContract
+import com.cogitator.blockchainsample.presenter.utils.API_KEY
+import com.cogitator.blockchainsample.presenter.utils.BASE_URL
 import info.blockchain.api.createwallet.CreateWallet
 import info.blockchain.api.createwallet.CreateWalletResponse
 import info.blockchain.api.exchangerates.Currency

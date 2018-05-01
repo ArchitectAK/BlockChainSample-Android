@@ -1,8 +1,8 @@
-package com.cogitator.blockchainsample.peresenter.creation
+package com.cogitator.blockchainsample.presenter.creation
 
-import com.cogitator.blockchainsample.peresenter.base.BaseModel
-import com.cogitator.blockchainsample.peresenter.base.BasePresenter
-import com.cogitator.blockchainsample.peresenter.base.BaseView
+import com.cogitator.blockchainsample.presenter.base.BaseModel
+import com.cogitator.blockchainsample.presenter.base.BasePresenter
+import com.cogitator.blockchainsample.presenter.base.BaseView
 import info.blockchain.api.createwallet.CreateWalletResponse
 import rx.Observable
 

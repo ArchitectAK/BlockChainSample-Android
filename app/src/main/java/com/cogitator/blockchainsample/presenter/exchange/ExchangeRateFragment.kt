@@ -1,4 +1,4 @@
-package com.cogitator.blockchainsample.peresenter.exchange
+package com.cogitator.blockchainsample.presenter.exchange
 
 import android.app.ProgressDialog
 import android.support.v7.widget.LinearLayoutManager
@@ -8,9 +8,9 @@ import android.view.View
 import android.widget.Toast
 import com.cogitator.blockchainsample.R
 import com.cogitator.blockchainsample.domain.BlockChainRepo
-import com.cogitator.blockchainsample.peresenter.base.BaseFragment
-import com.cogitator.blockchainsample.peresenter.base.IRecyclerItemClickListener
-import com.cogitator.blockchainsample.peresenter.exchange.ExchangeRateContract.ExchangeRatePresenter
+import com.cogitator.blockchainsample.presenter.base.BaseFragment
+import com.cogitator.blockchainsample.presenter.base.IRecyclerItemClickListener
+import com.cogitator.blockchainsample.presenter.exchange.ExchangeRateContract.ExchangeRatePresenter
 import info.blockchain.api.exchangerates.Currency
 import kotlinx.android.synthetic.main.fragment_exchange_rate.*
 import java.text.DecimalFormat

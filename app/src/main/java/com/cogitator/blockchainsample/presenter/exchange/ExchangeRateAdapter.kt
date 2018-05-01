@@ -1,11 +1,11 @@
-package com.cogitator.blockchainsample.peresenter.exchange
+package com.cogitator.blockchainsample.presenter.exchange
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cogitator.blockchainsample.R
-import com.cogitator.blockchainsample.peresenter.base.IRecyclerItemClickListener
+import com.cogitator.blockchainsample.presenter.base.IRecyclerItemClickListener
 import info.blockchain.api.exchangerates.Currency
 import kotlinx.android.synthetic.main.list_item_exchange_rate.view.*
 import java.text.DecimalFormat

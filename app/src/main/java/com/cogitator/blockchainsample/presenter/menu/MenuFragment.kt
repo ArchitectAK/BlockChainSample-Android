@@ -1,12 +1,12 @@
-package com.cogitator.blockchainsample.peresenter.menu
+package com.cogitator.blockchainsample.presenter.menu
 
 import android.view.View
 import com.cogitator.blockchainsample.R
-import com.cogitator.blockchainsample.peresenter.MainActivity
-import com.cogitator.blockchainsample.peresenter.base.BaseFragment
+import com.cogitator.blockchainsample.presenter.MainActivity
+import com.cogitator.blockchainsample.presenter.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_menu.*
-import com.cogitator.blockchainsample.peresenter.creation.RegisterWalletFragment
-import com.cogitator.blockchainsample.peresenter.exchange.ExchangeRateFragment
+import com.cogitator.blockchainsample.presenter.creation.RegisterWalletFragment
+import com.cogitator.blockchainsample.presenter.exchange.ExchangeRateFragment
 
 
 /**

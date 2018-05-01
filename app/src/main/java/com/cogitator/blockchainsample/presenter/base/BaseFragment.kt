@@ -1,4 +1,4 @@
-package com.cogitator.blockchainsample.peresenter.base
+package com.cogitator.blockchainsample.presenter.base
 
 import android.app.Activity
 import android.os.Bundle
@@ -10,7 +10,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.cogitator.blockchainsample.peresenter.MainActivity
+import com.cogitator.blockchainsample.presenter.MainActivity
 
 /**
  * @author Ankit Kumar (ankitdroiddeveloper@gmail.com) on 29/04/2018 (MM/DD/YYYY)

@@ -1,4 +1,4 @@
-package com.cogitator.blockchainsample.peresenter.utils
+package com.cogitator.blockchainsample.presenter.utils
 
 /**
  * @author Ankit Kumar (ankitdroiddeveloper@gmail.com) on 30/04/2018 (MM/DD/YYYY)
