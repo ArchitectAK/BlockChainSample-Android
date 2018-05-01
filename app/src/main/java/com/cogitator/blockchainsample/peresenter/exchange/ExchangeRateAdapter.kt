@@ -44,7 +44,7 @@ class ExchangeRateAdapter(private val itemClickListener: IRecyclerItemClickListe
         notifyItemChanged(this.selectedPosition)
     }
 
-    class ExchangeRateVH(itemView: View, private val itemClickListener: IRecyclerItemClickListener<String>) : RecyclerView.ViewHolder() {
+    class ExchangeRateVH(itemView: View, private val itemClickListener: IRecyclerItemClickListener<String>) : RecyclerView.ViewHolder(itemView) {
         private val numberFormat = DecimalFormat.getInstance()
         private lateinit var keyLabel: String
 
