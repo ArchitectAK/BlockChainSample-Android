@@ -1,6 +1,7 @@
 package com.cogitator.blockchainsample.domain
 
 import com.cogitator.blockchainsample.presenter.creation.RegisterWalletContract
+import com.cogitator.blockchainsample.presenter.exchange.ExchangeRateContract
 import com.cogitator.blockchainsample.presenter.utils.API_KEY
 import com.cogitator.blockchainsample.presenter.utils.BASE_URL
 import info.blockchain.api.createwallet.CreateWallet
@@ -19,6 +20,12 @@ import rx.schedulers.Schedulers
 
 class BlockChainRepo : RegisterWalletContract.RegisterWalletModel,
         ExchangeRateContract.ExchangeRateModel {
+    override val exchangeRates: Observable<Map<String, Currency>>
+        get() {
+            return Observable.fromCallable({ ExchangeRates.getTicker(API_KEY) })
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.newThread())
+        }
 
     override fun createWallet(email: String, password: String): Observable<CreateWalletResponse> {
         return Observable.fromCallable({
@@ -28,12 +35,6 @@ class BlockChainRepo : RegisterWalletContract.RegisterWalletModel,
                     API_KEY, null, null,
                     email)
         })
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeOn(Schedulers.newThread())
-    }
-
-    fun getExchangeRates(): Observable<Map<String, Currency>> {
-        return Observable.fromCallable({ ExchangeRates.getTicker(API_KEY) })
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
     }
