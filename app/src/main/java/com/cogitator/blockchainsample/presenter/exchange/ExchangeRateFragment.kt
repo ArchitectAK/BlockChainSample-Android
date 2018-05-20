@@ -1,5 +1,6 @@
 package com.cogitator.blockchainsample.presenter.exchange
 
+
 import android.app.ProgressDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
@@ -10,7 +11,6 @@ import com.cogitator.blockchainsample.R
 import com.cogitator.blockchainsample.domain.BlockChainRepo
 import com.cogitator.blockchainsample.presenter.base.BaseFragment
 import com.cogitator.blockchainsample.presenter.base.IRecyclerItemClickListener
-import com.cogitator.blockchainsample.presenter.exchange.ExchangeRateContract.ExchangeRatePresenter
 import info.blockchain.api.exchangerates.Currency
 import kotlinx.android.synthetic.main.fragment_exchange_rate.*
 import java.text.DecimalFormat
@@ -26,6 +26,7 @@ class ExchangeRateFragment : BaseFragment(), ExchangeRateContract.ExchangeRateVi
     private val numberFormat = DecimalFormat.getInstance()
     private var presenter: ExchangeRateContract.ExchangeRatePresenter? = null
     private var progressDialog: ProgressDialog? = null
+    private var exchangeRateAdapter: ExchangeRateAdapter? = null
 
     override fun showProgress() {
         dismissProgress()
@@ -43,12 +44,12 @@ class ExchangeRateFragment : BaseFragment(), ExchangeRateContract.ExchangeRateVi
 
     override fun showErrorToast() {
         Toast.makeText(activity, R.string.exchange_rate_error, Toast.LENGTH_SHORT).show()
-        tvListEmpty_FER.visibility = if (exchangeRateAdapter.getItemCount() === 0) View.VISIBLE else View.GONE
+        tvListEmpty_FER.visibility = if (exchangeRateAdapter?.itemCount == 0) View.VISIBLE else View.GONE
     }
 
     override fun setExchangeRates(data: List<Pair<String, Currency>>) {
-        exchangeRateAdapter.updateData(data)
-        tvListEmpty_FER.visibility = if (exchangeRateAdapter.getItemCount() === 0) View.VISIBLE else View.GONE
+        exchangeRateAdapter?.updateData(data)
+        tvListEmpty_FER.visibility = if (exchangeRateAdapter?.itemCount == 0) View.VISIBLE else View.GONE
 
     }
 
@@ -66,7 +67,7 @@ class ExchangeRateFragment : BaseFragment(), ExchangeRateContract.ExchangeRateVi
     }
 
     override fun setToExchange(exchangeCode: String, value: Double) {
-        if (exchangeCode.equals(ExchangeRatePresenter.BITCOIN)) {
+        if (exchangeCode == ExchangeRatePresenter.BITCOIN) {
             tvToExchangeIconInText_FER.visibility = View.INVISIBLE
             ivToExchangeIcon_FER.visibility = View.VISIBLE
         } else {
@@ -89,7 +90,7 @@ class ExchangeRateFragment : BaseFragment(), ExchangeRateContract.ExchangeRateVi
     }
 
     override fun selectItem(data: String, position: Int) {
-        exchangeRateAdapter.selectItem(position)
+        exchangeRateAdapter?.selectItem(position)
         presenter?.setTargetCurrencyInKey(data)
     }
 
@@ -101,21 +102,14 @@ class ExchangeRateFragment : BaseFragment(), ExchangeRateContract.ExchangeRateVi
         return R.layout.fragment_exchange_rate
     }
 
+
     override fun initUI() {
         numberFormat.minimumFractionDigits = 2
         numberFormat.maximumFractionDigits = 15
+        exchangeRateAdapter = ExchangeRateAdapter(this)
 
-        ivFromExchangeIcon_FER
-        ivToExchangeIcon_FER
-
-        tvFromExchangeIconInText_FER
-        tvToExchangeIconInText_FER
-
-
-
-        etToExchangeValue_FER
         rvExchangeRates_FER.layoutManager = LinearLayoutManager(activity)
-        rvExchangeRates_FER.adapter = ExchangeRateAdapter(this)
+        rvExchangeRates_FER.adapter = exchangeRateAdapter
 
         etFromExchangeValue_FER.addTextChangedListener(fromExchangeTextWatcher)
         ivChangeExchangeSides_FER.setOnClickListener(this)
@@ -145,7 +139,7 @@ class ExchangeRateFragment : BaseFragment(), ExchangeRateContract.ExchangeRateVi
                 e.printStackTrace()
             }
 
-            presenter.calculateExchange(result)
+            presenter?.calculateExchange(result)
         }
 
         override fun afterTextChanged(editable: Editable) {
