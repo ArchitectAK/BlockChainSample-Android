@@ -76,7 +76,7 @@ class ExchangeRatePresenter(private var view: ExchangeRateContract.ExchangeRateV
     }
 
     private fun prepareDataForList(): List<Pair<String, Currency>> {
-        val data: MutableList<Pair<String, Currency>> = emptyList<Pair<String, Currency>>() as MutableList<Pair<String, Currency>>
+        val data: MutableList<Pair<String, Currency>> = ArrayList()
         for (label in exchangeRates.keys) {
             data.add(Pair(label, exchangeRates[label]) as Pair<String, Currency>)
         }

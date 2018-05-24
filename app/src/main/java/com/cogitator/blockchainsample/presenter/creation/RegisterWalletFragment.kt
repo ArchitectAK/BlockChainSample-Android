@@ -130,7 +130,7 @@ class RegisterWalletFragment : BaseFragment(), RegisterWalletContract.RegisterWa
 
     @SuppressLint("SetTextI18n")
     private fun testDemo() {
-        etEmail_FRW.setText("test@mail.ru")
+        etEmail_FRW.setText("ankit@mail.com")
         etPassword_FRW.setText("1234567890")
         etPasswordConfirm_FRW.setText("1234567890")
     }

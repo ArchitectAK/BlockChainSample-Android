@@ -121,7 +121,7 @@ class ExchangeRateFragment : BaseFragment(), ExchangeRateContract.ExchangeRateVi
 
     override fun onDestroy() {
         super.onDestroy()
-        etFromExchangeValue_FER.removeTextChangedListener(fromExchangeTextWatcher)
+        etFromExchangeValue_FER?.removeTextChangedListener(fromExchangeTextWatcher)
         this.presenter?.unsubscribe()
     }
 

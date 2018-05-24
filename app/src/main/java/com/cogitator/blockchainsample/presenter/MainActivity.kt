@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v7.app.AppCompatActivity
 import com.cogitator.blockchainsample.R
+import com.cogitator.blockchainsample.presenter.menu.MenuFragment
 
 
 /**
@@ -17,10 +18,10 @@ class MainActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedList
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        replaceFragment(MenuFragment(), false)
     }
 
     fun replaceFragment(fragment: Fragment, addToBackStack: Boolean) {
-
         if (addToBackStack)
             supportFragmentManager.beginTransaction()
                     .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_right, R.anim.slide_in_left, R.anim.slide_out_left)

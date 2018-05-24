@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BlockChain Sample</string>
+    <string name="app_name">BlockChain</string>
     <string name="create_wallet">Create Wallet</string>
     <string name="exchange_rate">Exchange Rate</string>
 

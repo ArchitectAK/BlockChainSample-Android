@@ -14,7 +14,7 @@ import com.cogitator.blockchainsample.presenter.exchange.ExchangeRateFragment
  */
 class MenuFragment : BaseFragment(), MenuContract.MenuView, View.OnClickListener {
 
-    private val presenter: MenuContract.MenuPresenter? = null
+    private var presenter: MenuContract.MenuPresenter? = null
 
     override fun screenName(): Int {
         return R.string.app_name
@@ -42,6 +42,7 @@ class MenuFragment : BaseFragment(), MenuContract.MenuView, View.OnClickListener
     }
 
     override fun setPresenter(presenter: MenuContract.MenuPresenter) {
+        this.presenter = presenter
         this.presenter?.subscribe()
     }
 

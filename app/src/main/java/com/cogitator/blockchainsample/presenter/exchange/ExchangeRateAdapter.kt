@@ -16,7 +16,7 @@ import java.text.DecimalFormat
  */
 class ExchangeRateAdapter(private val itemClickListener: IRecyclerItemClickListener<String>) : RecyclerView.Adapter<ExchangeRateAdapter.ExchangeRateVH>() {
 
-    private val listData: MutableList<Pair<String, Currency>> = emptyList<Pair<String, Currency>>() as MutableList<Pair<String, Currency>>
+    private val listData: MutableList<Pair<String, Currency>> = ArrayList()
     private var selectedPosition = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExchangeRateVH {
@@ -38,9 +38,9 @@ class ExchangeRateAdapter(private val itemClickListener: IRecyclerItemClickListe
     }
 
     fun selectItem(pos: Int) {
-        val prevPosititon = this.selectedPosition
+        val prevPosition = this.selectedPosition
         this.selectedPosition = pos
-        notifyItemChanged(prevPosititon)
+        notifyItemChanged(prevPosition)
         notifyItemChanged(this.selectedPosition)
     }
 

@@ -9,9 +9,9 @@ import java.util.regex.Pattern
 /**
  * @author Ankit Kumar (ankitdroiddeveloper@gmail.com) on 30/04/2018 (MM/DD/YYYY)
  */
-class RegisterWalletPresenter(var view: RegisterWalletContract.RegisterWalletView?, var model: RegisterWalletContract.RegisterWalletModel?) : RegisterWalletContract.RegisterWalletPresenter {
+class RegisterWalletPresenter(var view: RegisterWalletContract.RegisterWalletView?, private var model: RegisterWalletContract.RegisterWalletModel?) : RegisterWalletContract.RegisterWalletPresenter {
 
-    private val PASSWORD_PATTERN = Pattern.compile("^[a-zA-Z0-9_@]{10,}+$")
+    private val PASSWORDPATTERN = Pattern.compile("^[a-zA-Z0-9_@]{10,}+$")
 
     init {
         view?.setPresenter(this)
@@ -32,7 +32,7 @@ class RegisterWalletPresenter(var view: RegisterWalletContract.RegisterWalletVie
         if (TextUtils.isEmpty(password)) {
             this.view?.showErrorStateForPassword(RegisterWalletError.Password.EMPTY)
             allValid = false
-        } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
+        } else if (!PASSWORDPATTERN.matcher(password).matches()) {
             this.view?.showErrorStateForPassword(RegisterWalletError.Password.NOT_VALID)
             allValid = false
         } else
@@ -41,7 +41,7 @@ class RegisterWalletPresenter(var view: RegisterWalletContract.RegisterWalletVie
         if (TextUtils.isEmpty(confirmPassword)) {
             this.view?.showErrorStateForPasswordConfirm(RegisterWalletError.PasswordConfirm.EMPTY)
             allValid = false
-        } else if (!password.equals(confirmPassword)) {
+        } else if (!password.equals(confirmPassword, false)) {
             this.view?.showErrorStateForPasswordConfirm(RegisterWalletError.PasswordConfirm.NOT_EQUAL)
             allValid = false
         } else
@@ -51,7 +51,7 @@ class RegisterWalletPresenter(var view: RegisterWalletContract.RegisterWalletVie
     }
 
     override fun subscribe() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun unsubscribe() {
